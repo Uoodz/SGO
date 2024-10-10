@@ -2,7 +2,7 @@ from django.contrib import admin
 
 from .models import AssistenteSocial,ONG, Diretor, Assistido, Dependente, Atendimento, Voluntario, Visita, Pergunta, Questionario, RespostaQuestionario
 
-
+# Register your models here.
 @admin.register(AssistenteSocial)
 class AssistenteSocialAdmin(admin.ModelAdmin):
     list_display = ('nome', 'contato', 'email', 'cpf')
@@ -46,4 +46,4 @@ class QuestionarioAdmin(admin.ModelAdmin):
 @admin.register(RespostaQuestionario)
 class RespostaQuestionarioAdmin(admin.ModelAdmin):
     list_display = ('informacoes', 'questionario', 'visita')
-# Register your models here.
+

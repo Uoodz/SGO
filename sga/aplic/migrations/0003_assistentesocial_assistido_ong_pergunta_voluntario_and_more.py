@@ -6,10 +6,6 @@ from django.db import migrations, models
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-        ('aplic', '0002_alter_curso_options_aluno_disciplina_professor_turma'),
-    ]
-
     operations = [
         migrations.CreateModel(
             name='AssistenteSocial',
@@ -95,26 +91,6 @@ class Migration(migrations.Migration):
                 'verbose_name_plural': 'Voluntários',
             },
         ),
-        migrations.RemoveField(
-            model_name='turma',
-            name='alunos',
-        ),
-        migrations.RemoveField(
-            model_name='disciplina',
-            name='curso',
-        ),
-        migrations.RemoveField(
-            model_name='professor',
-            name='curso',
-        ),
-        migrations.RemoveField(
-            model_name='turma',
-            name='disciplina',
-        ),
-        migrations.RemoveField(
-            model_name='turma',
-            name='professor',
-        ),
         migrations.CreateModel(
             name='Atendimento',
             fields=[
@@ -198,20 +174,5 @@ class Migration(migrations.Migration):
                 'verbose_name': 'Resposta',
                 'verbose_name_plural': 'Respostas',
             },
-        ),
-        migrations.DeleteModel(
-            name='Aluno',
-        ),
-        migrations.DeleteModel(
-            name='Curso',
-        ),
-        migrations.DeleteModel(
-            name='Disciplina',
-        ),
-        migrations.DeleteModel(
-            name='Professor',
-        ),
-        migrations.DeleteModel(
-            name='Turma',
         ),
     ]
