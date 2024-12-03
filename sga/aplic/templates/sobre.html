@@ -1,10 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'base.html'  %}
+{% block content %}
+{% load static %}
+<div class="container mt-5" style="background-color: #f9f9f9;">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="text-start">Sobre nós</h1>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-10">
+            <p class="text-justify">
+                Feixe de Luz: Transformando Vidas e Cuidando de Sonhos no Bairro de Lourdes. A Feixe de Luz é uma ONG localizada no bairro de Lourdes, em Juiz de Fora, dedicada a apoiar famílias em situação de vulnerabilidade social. Seu objetivo é transformar vidas por meio de ações de solidariedade, como doações de alimentos, roupas e itens de higiene, além de eventos para arrecadação de recursos. A organização oferece um apoio contínuo e acolhedor, buscando promover dignidade e esperança para aqueles que mais precisam. Ao longo dos anos, a Feixe de Luz tem se consolidado como um ponto de apoio essencial para a comunidade, mostrando como a empatia e a união podem transformar realidades.
+            </p>
+        </div>
+    </div>
+      <div class="container px-5">
+        <img src="{% static 'sobre.png' %}" class="img-fluid border rounded-3 shadow-lg mb-4" alt="Example image" width="500" height="300" loading="lazy">
+      </div>
+</div>
+{% endblock %}

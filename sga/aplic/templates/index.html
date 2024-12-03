@@ -1,42 +1,22 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bem-vindo ao Meu Site</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            color: #333;
-            text-align: center;
-            padding: 50px;
-        }
-        h1 {
-            color: #2c3e50;
-        }
-        p {
-            font-size: 1.2em;
-        }
-        a {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #3498db;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-        a:hover {
-            background-color: #2980b9;
-        }
-    </style>
-</head>
-<body>
+{% extends 'base.html'  %}
+{% load static %}
 
-    <h1>Bem-vindo ao Meu Site!</h1>
-    <p>Aqui você encontrará conteúdos incríveis.</p>
-    <a href="sobre.html">Saiba mais sobre nós</a>
+{% block content %}
 
-</body>
-</html>
+    <div class="px-4 pt-5 my-5 text-center border-bottom">
+    <h1 class="display-4 fw-bold">Feixe de Luz</h1>
+    <div class="col-lg-6 mx-auto">
+      <p class="lead mb-4">Nossa organização atua com pessoas em situação de vulnerabilidade, oferecendo suporte e ferramentas para que possam superar desafios e construir um futuro mais digno. Nosso trabalho é focado na promoção da inclusão social, por meio de ações como distribuição de alimentos, assistência médica, apoio psicológico, capacitação profissional e outras iniciativas que atendam às necessidades mais urgentes de quem mais precisa. Acreditamos no poder da solidariedade e na força das parcerias para gerar impacto real e duradouro. Juntos, construímos oportunidades e esperança.</p>
+      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
+          <a href="{% url 'ajuda' %}" class="btn btn-primary">Peça Ajuda</a>
+          <a href="{% url 'sobre' %}" class="btn btn-secondary">Sobre a ONG</a>
+      </div>
+    </div>
+    <div class="overflow-hidden" style="max-height: 30vh;">
+      <div class="container px-5">
+        <img src="{% static 'ong.jpg' %}" class="img-fluid border rounded-3 shadow-lg mb-4" alt="Example image" width="700" height="500" loading="lazy">
+      </div>
+    </div>
+
+  </div>
+{% endblock %}

@@ -156,3 +156,18 @@ class RespostaQuestionario(models.Model):
         verbose_name = ('Resposta')
         verbose_name_plural = ('Respostas')
 
+from django.db import models
+
+class SolicitacaoAjuda(models.Model):
+    nome = models.CharField(max_length=100, blank=True, null=True)
+    contato = models.CharField(max_length=100, blank=True, null=True)
+    tipo_ajuda = models.CharField(max_length=100)
+    descricao = models.TextField()
+    data_criacao = models.DateTimeField(auto_now_add=True)
+    def data_descricao_formatada(self):
+        return self.data_descricao.strftime('%d/%m/%Y')
+
+    data_descricao_formatada.short_description = 'Data de Descrição'
+
+    def __str__(self):
+        return self.tipo_ajuda
