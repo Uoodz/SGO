@@ -1,4 +1,6 @@
 import uuid
+from time import localtime
+
 from django.db import models
 from stdimage.models import StdImageField
 from django.utils.translation import gettext_lazy as _
@@ -159,15 +161,28 @@ class RespostaQuestionario(models.Model):
 from django.db import models
 
 class SolicitacaoAjuda(models.Model):
-    nome = models.CharField(max_length=100, blank=True, null=True)
-    contato = models.CharField(max_length=100, blank=True, null=True)
+    nome = models.CharField(max_length=100)
+    contato = models.CharField(max_length=100, default="Sem contato")
     tipo_ajuda = models.CharField(max_length=100)
     descricao = models.TextField()
     data_criacao = models.DateTimeField(auto_now_add=True)
-    def data_descricao_formatada(self):
-        return self.data_descricao.strftime('%d/%m/%Y')
 
-    data_descricao_formatada.short_description = 'Data de Descrição'
+    def data_descricao_formatada(self):
+        if self.data_criacao:
+            return self.data_criacao.strftime('%d/%m/%Y %H:%M:%S')
+        return "Data não disponível"
+
+    data_descricao_formatada.short_description = 'Data de Criação'
 
     def __str__(self):
         return self.tipo_ajuda
+
+from django.db import models
+
+class VisitaSite(models.Model):
+    ip_address = models.GenericIPAddressField()
+    user_agent = models.CharField(max_length=255)
+    data_hora = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Visita de {self.ip_address} em {self.data_hora}"

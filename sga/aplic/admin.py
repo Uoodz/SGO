@@ -1,6 +1,8 @@
 from django.contrib import admin
 
-from .models import AssistenteSocial,ONG, Diretor, Assistido, Dependente, Atendimento, Voluntario, Visita, Pergunta, Questionario, RespostaQuestionario, SolicitacaoAjuda
+from .models import AssistenteSocial, ONG, Diretor, Assistido, Dependente, Atendimento, Voluntario, Visita, Pergunta, \
+    Questionario, RespostaQuestionario, SolicitacaoAjuda, VisitaSite
+
 
 # Register your models here.
 @admin.register(AssistenteSocial)
@@ -51,3 +53,7 @@ class RespostaQuestionarioAdmin(admin.ModelAdmin):
 class SolicitacaoAjudaAdmin(admin.ModelAdmin):
     list_display = ('nome', 'contato', 'tipo_ajuda', 'data_descricao_formatada')
 
+@admin.register(VisitaSite)
+class VisitaSiteAdmin(admin.ModelAdmin):
+    list_display = ('ip_address', 'user_agent', 'data_hora')
+    list_filter = ('data_hora',)

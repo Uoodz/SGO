@@ -1,5 +1,5 @@
 from django import forms
-from .models import SolicitacaoAjuda
+from .models import SolicitacaoAjuda, VisitaSite
 
 class SolicitarAjudaForm(forms.ModelForm):
     class Meta:
@@ -11,3 +11,8 @@ class SolicitarAjudaForm(forms.ModelForm):
             'tipo_ajuda': forms.Select(attrs={'class': 'form-select'}),
             'descricao': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Descreva sua necessidade'}),
         }
+
+class VisitaForm(forms.ModelForm):
+    class Meta:
+        model = VisitaSite
+        fields = ['ip_address', 'user_agent']
